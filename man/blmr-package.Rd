@@ -4,12 +4,12 @@
 \name{blmr-package}
 \alias{blmr}
 \alias{blmr-package}
-\title{blmr: What the Package Does (One Line, Title Case)}
+\title{blmr: Bayesian linear model in R.}
 \description{
-What the package does (one paragraph).
+Bayesian linear model in R.
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com} (YOUR-ORCID-ID)
+\strong{Maintainer}: Shohei Ogawa \email{s_ogawa@akarf.com}
 
 }
 \keyword{internal}
