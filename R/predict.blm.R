@@ -1,12 +1,14 @@
 #' Predict value by bayesian linear model
 #'
 #' @param model a bayesian model for which prediction is desired.
-#' @param new_data new data for which prediction is desired.
+#' @param newdata new data for which prediction is desired.
 #' @param type the type of prediction required.
 #' @export
 #'
 predict.blm <- function(model, newdata, type = "response"){
-  mm <- model.matrix(model$formula, newdata)
+  tt <- terms(model$formula, data = model$data)
+  Terms <- delete.response(tt)
+  mm <- model.matrix(Terms, newdata)
 
   if(type == "response"){
     m_ast <- t(model$m_hat) %*% t(mm)

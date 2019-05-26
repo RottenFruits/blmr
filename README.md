@@ -24,8 +24,8 @@ df <- data.frame(X, y)
 
 model <- blm(y ~ X + I(X^2) + I(X^3) + I(X^4), df, 10)
 
-df_test <- data.frame(X = runif(100, 0, 10), y = 0)
-df_test <- df_test[order(df_test$X), ]
+df_test <- data.frame(X = runif(100, 0, 10))
+df_test <- df_test[order(df_test$X), , FALSE]
 
 yhat <- predict(model, df_test, type = "response")
 sq_hat <- predict(model, df_test, type = "sd")

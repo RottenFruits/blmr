@@ -8,11 +8,12 @@
 blm <- function(formula, data, lambda){
   #fields
   me <- list(formula = formula,
-       lambda = lambda,
-       Lambda_hat = 0,
-       Lambda_hat_inv = 0,
-       m_hat = 0,
-       model_evidence = 0)
+             data = data,
+             lambda = lambda,
+             Lambda_hat = 0,
+             Lambda_hat_inv = 0,
+             m_hat = 0,
+             model_evidence = 0)
 
   #model
   mm <- model.matrix(formula, data) #design matrix

@@ -4,12 +4,12 @@
 \alias{predict.blm}
 \title{Predict value by bayesian linear model}
 \usage{
-\method{predict}{blm}(model, new_data, type = "response")
+\method{predict}{blm}(model, newdata, type = "response")
 }
 \arguments{
 \item{model}{a bayesian model for which prediction is desired.}
 
-\item{new_data}{new data for which prediction is desired.}
+\item{newdata}{new data for which prediction is desired.}
 
 \item{type}{the type of prediction required.}
 }
