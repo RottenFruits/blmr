@@ -5,8 +5,8 @@
 #' @param type the type of prediction required.
 #' @export
 #'
-predict.blm <- function(model, new_data, type = "response"){
-  mm <- model.matrix(model$formula, new_data)
+predict.blm <- function(model, newdata, type = "response"){
+  mm <- model.matrix(model$formula, newdata)
 
   if(type == "response"){
     m_ast <- t(model$m_hat) %*% t(mm)
