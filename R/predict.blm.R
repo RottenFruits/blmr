@@ -3,6 +3,7 @@
 #' @param model a bayesian model for which prediction is desired.
 #' @param new_data new data for which prediction is desired.
 #' @param type the type of prediction required.
+#' @export
 #'
 predict.blm <- function(model, new_data, type = "response"){
   mm <- model.matrix(model$formula, new_data)
