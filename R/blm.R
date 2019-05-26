@@ -6,6 +6,14 @@
 #' @export
 #'
 blm <- function(formula, data, lambda){
+  #fields
+  me <- list(formula = formula,
+       lambda = lambda,
+       Lambda_hat = 0,
+       Lambda_hat_inv = 0,
+       m_hat = 0,
+       model_evidence = 0)
+
   #model
   mm <- model.matrix(formula, data) #design matrix
   y <- model.response(model.frame(formula, data)) #response variable
@@ -20,9 +28,15 @@ blm <- function(formula, data, lambda){
   m_hat <- Lambda_hat_inv %*% t((lambda * (y %*% mm) + t(Lambda %*% m)))
 
   #model evidence
-  mde = -0.5*(lambda * sum(y^2) - log(lambda) + log(2*pi) + as.vector(m %*% Lambda %*% m) -
+  mde <- -0.5*(lambda * sum(y^2) - log(lambda) + log(2*pi) + as.vector(m %*% Lambda %*% m) -
                 log(det(Lambda)) - as.vector(t(m_hat) %*% Lambda_hat %*% m_hat) + log(det(Lambda_hat)))
 
-  return(list(formula = formula, lambda = lambda, Lambda_hat = Lambda_hat, Lambda_hat_inv = Lambda_hat_inv, m_hat = m_hat,
-              model_evidence = mde))
+  me$Lambda_hat <- Lambda_hat
+  me$Lambda_hat_inv <- Lambda_hat_inv
+  me$m_hat <- m_hat
+  me$mde <- mde
+
+  #set class
+  class(me) <- append(class(me),"blm")
+  return(me)
 }
