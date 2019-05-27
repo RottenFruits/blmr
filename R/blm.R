@@ -35,7 +35,7 @@ blm <- function(formula, data, lambda){
   me$Lambda_hat <- Lambda_hat
   me$Lambda_hat_inv <- Lambda_hat_inv
   me$m_hat <- m_hat
-  me$mde <- mde
+  me$model_evidence <- mde
 
   #set class
   class(me) <- append(class(me),"blm")
